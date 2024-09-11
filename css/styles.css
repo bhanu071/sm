@@ -1,0 +1,212 @@
+/* General Styles */
+/* Apply overflow hidden to all elements */
+* {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%; /* Ensure html and body take full height */
+    overflow: hidden; /* Prevent horizontal scrolling on body */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Start Form css */
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Allow the columns to wrap on smaller screens */
+}
+
+.form-column {
+    flex: 1;
+    margin: 10px;
+}
+
+input[type=text], input[type=email], input[type=tel], select, textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+/* Media Query for screens below 768px */
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack the columns vertically */
+    }
+}
+
+/* Media Query for screens below 480px */
+@media screen and (max-width: 480px) {
+    input[type=text], input[type=email], input[type=tel], select, textarea {
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+
+    input[type=submit] {
+        padding: 12px; /* Adjust the submit button size */
+    }
+}
+
+/* End Form css  */
+ 
+header {
+    background-color: #00001a;
+    color: white;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.nav-list a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.header-actions button {
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.header-actions button:hover {
+    background-color: #666;
+}
+
+/* Layout Container */
+.layout-container {
+    display: flex;
+    flex-grow: 1;
+    margin-top: 60px; /* Space for the fixed header */
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: #2c3e50;
+    width: 250px;
+    padding: 20px;
+    height: calc(100vh - 60px); /* Full height minus header */
+    position: fixed;
+    top: 60px; /* Below the header */
+    left: 0;
+    transition: width 0.3s ease;
+    overflow-y: auto; /* Enable vertical scrolling in the sidebar */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.sidebar-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-list li {
+    margin-bottom: 15px;
+}
+
+.sidebar-list a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+}
+
+.sidebar-list a:hover {
+    background-color: #34495e;
+    padding-left: 15px;
+    transition: 0.3s;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 250px;
+    padding: 30px;
+    flex-grow: 1;
+    min-height: calc(100vh - 60px); /* Ensure full content height */
+    overflow-y: auto; /* Allow scrolling for overflow content */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    transition: margin-left 0.3s ease;
+}
+
+/* Footer */
+footer {
+    background-color: #00001a;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 60px;
+    }
+
+    .main-content {
+        margin-left: 60px;
+    }
+
+    .sidebar-list a {
+        text-align: center;
+    }
+
+    .sidebar-list a:hover {
+        padding-left: 0;
+    }
+
+    .nav-list {
+        display: none;
+    }
+}
